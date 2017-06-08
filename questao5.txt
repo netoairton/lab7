@@ -1,0 +1,7 @@
+Questão 5
+O programa inicialmente declara dois vetores em STL, col e col2;
+Através do push_back da STL, adiciona os elementos do 1 até o 9 no vector col;
+Através do transform, coloca no col2 cada elementos ao quadrado
+(pela função implementada square) do col;
+Imprime os elementos do vector col2 usando iteradores da STL,desde o inicio
+.begin() até o fim .end();
