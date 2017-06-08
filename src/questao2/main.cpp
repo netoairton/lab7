@@ -10,7 +10,7 @@ using std::vector;
 
 int main(){
     set<int> numeros;
-    //vector<int> teste;
+    vector<int> teste;
     for(int i=15; i>=0; i--){
         numeros.insert(i);
     }
@@ -19,12 +19,12 @@ int main(){
     numeros.insert(99);
     numeros.insert(1);
 
-    /*for(int i=15; i>=0; i--){
+    for(int i=15; i>=0; i--){
         teste.push_back(i);
-    }*/
+    }
 
     print_elements(numeros, "Set: ");
     print_elements(numeros, "CSV Set: ", ';');
-    //print_elements(teste, "CSV Set:", ';');
+    print_elements(teste, "CSV Set:", ';');
     return 0;    
 }

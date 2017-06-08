@@ -10,7 +10,7 @@ using std::endl;
 
 template<typename TContainer>
 void print_elements(const TContainer& collection, const char* label="", const char separator=' '){
-    typename TContainer::iterator it;
+    typename TContainer::const_iterator it;
     cout<<label;
     for(it = collection.begin(); it!=collection.end(); ++it){
         cout<<*it<<separator;

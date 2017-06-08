@@ -135,6 +135,55 @@ $(OBJ_DIR)/questao4/main.o: $(SRC_DIR)/questao4/main.cpp $(INC_DIR)/questao4/isp
 
 
 
+############  questao1  #########
+
+CFLAGS=-Wall -pedantic -ansi -std=c++11 -I. -I$(INC_DIR)/questao1
+
+
+
+# Garante que os alvos desta lista nao sejam confundidos com arquivos de mesmo nome
+
+.PHONY: all init clean debug doxy doc
+
+
+
+# Define o alvo (target) para a compilacao completa e os alvos de dependencia.
+
+# Ao final da compilacao, remove os arquivos objeto.
+
+all:	pertomedia
+
+
+debug: CFLAGS += -g -O0
+
+debug: all
+
+
+
+
+pertomedia: $(OBJ_DIR)/questao1/main.o
+
+	@echo "============="
+
+	@echo "Ligando o alvo $@"
+
+	@echo "============="
+
+	$(CC) $(CFLAGS) -o $(BIN_DIR)/questao1/pertomedia $^
+
+	@echo "+++ [Executavel palindromo criado em  $(BIN_DIR)/pertomedia] +++"
+
+	@echo "============="
+
+
+# Alvo (target) para a construcao do objeto build/programa1/main.o
+
+# Define os arquivos src/programa1/main.cpp e os arquivos de cabecalho como dependencias.
+
+$(OBJ_DIR)/questao1/main.o: $(SRC_DIR)/questao1/main.cpp $(INC_DIR)/questao1/funcoes.h
+
+	$(CC) -c $(CFLAGS) -o $@ $<
+
 # Alvo (target) para a gera��o automatica de documentacao usando o Doxygen.
 
 # Sempre remove a documentacao anterior (caso exista) e gera uma nova.
@@ -146,6 +195,8 @@ doxy:
 doc:
 
 	$(RM) $(DOC_DIR)/questao2/*
+
+	$(RM) $(DOC_DIR)/questao1/*
 
 	$(RM) $(DOC_DIR)/questao4/*
 
@@ -163,6 +214,10 @@ clean:
 	$(RM) $(BIN_DIR)/questao2/printer
 
 	$(RM) $(OBJ_DIR)/questao2/*
+
+	$(RM) $(BIN_DIR)/questao1/pertomedia
+
+	$(RM) $(OBJ_DIR)/questao1/*
 
 	$(RM) $(BIN_DIR)/questao4/primos
 
