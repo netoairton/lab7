@@ -1,6 +1,10 @@
-/*#ifndef FUNCOES_H
-#define FUNCOES_H*/
-
+/**
+ * @file	funcoes.h
+ * @brief	Implementacao da funcao que calcula a media do container e retorna o mais proximo
+ * @author	Airton Neto(netoairton@yahoo.com.br)
+ * @since	08/06/2017
+ * @date	08/06/2017
+ */
 #include<set>
 using std::set;
 #include<vector>
@@ -11,6 +15,12 @@ using std::endl;
 #include<algorithm>
 #include<cmath>
 
+/**
+ * @brief Funcao que calcula a media do vetor e calcula o valor mais proximo da media
+ * @param Iterador ao primeiro elemento do container
+ * @param Iterador ao ultimo elemento do container
+ * @return Iterador para o valor mais proximo a media
+ */
 template<typename InputIterator>
 InputIterator closest2mean(InputIterator first, InputIterator last){
     
@@ -40,5 +50,3 @@ InputIterator closest2mean(InputIterator first, InputIterator last){
     }
     return jj;
 }
-
-//#endif

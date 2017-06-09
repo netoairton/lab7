@@ -1,3 +1,10 @@
+/**
+ * @file	main.cpp
+ * @brief	Implementacao do main
+ * @author	Airton Neto(netoairton@yahoo.com.br)
+ * @since	07/06/2017
+ * @date	07/06/2017
+ */
 #include<iostream>
 using std::cout;
 using std::cin;

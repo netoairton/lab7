@@ -62,7 +62,7 @@ printer: $(OBJ_DIR)/questao2/main.o
 
 	$(CC) $(CFLAGS) -o $(BIN_DIR)/questao2/printer $^
 
-	@echo "+++ [Executavel palindromo criado em  $(BIN_DIR)/printer] +++"
+	@echo "+++ [Executavel printer criado em  $(BIN_DIR)/questao2/printer] +++"
 
 	@echo "============="
 
@@ -116,7 +116,7 @@ primos: $(OBJ_DIR)/questao4/main.o $(OBJ_DIR)/questao4/isprime.o
 
 	$(CC) $(CFLAGS) -o $(BIN_DIR)/questao4/primos $^
 
-	@echo "+++ [Executavel duplamente criado em $(BIN_DIR)/questao4] +++"
+	@echo "+++ [Executavel primos criado em $(BIN_DIR)/questao4/primos] +++"
 
 	@echo "============="
 
@@ -171,7 +171,7 @@ pertomedia: $(OBJ_DIR)/questao1/main.o
 
 	$(CC) $(CFLAGS) -o $(BIN_DIR)/questao1/pertomedia $^
 
-	@echo "+++ [Executavel palindromo criado em  $(BIN_DIR)/pertomedia] +++"
+	@echo "+++ [Executavel pertomedia criado em  $(BIN_DIR)/questao1/pertomedia] +++"
 
 	@echo "============="
 
@@ -183,6 +183,58 @@ pertomedia: $(OBJ_DIR)/questao1/main.o
 $(OBJ_DIR)/questao1/main.o: $(SRC_DIR)/questao1/main.cpp $(INC_DIR)/questao1/funcoes.h
 
 	$(CC) -c $(CFLAGS) -o $@ $<
+
+
+############  questao3  #########
+
+CFLAGS=-Wall -pedantic -ansi -std=c++11 -I. -I$(INC_DIR)/questao3
+
+
+
+# Garante que os alvos desta lista nao sejam confundidos com arquivos de mesmo nome
+
+.PHONY: all init clean debug doxy doc
+
+
+
+# Define o alvo (target) para a compilacao completa e os alvos de dependencia.
+
+# Ao final da compilacao, remove os arquivos objeto.
+
+all:	polonesa
+
+
+debug: CFLAGS += -g -O0
+
+debug: all
+
+
+
+
+polonesa: $(OBJ_DIR)/questao3/main.o
+
+	@echo "============="
+
+	@echo "Ligando o alvo $@"
+
+	@echo "============="
+
+	$(CC) $(CFLAGS) -o $(BIN_DIR)/questao3/polonesa $^
+
+	@echo "+++ [Executavel polonesa criado em  $(BIN_DIR)/questao3/polonesa] +++"
+
+	@echo "============="
+
+
+# Alvo (target) para a construcao do objeto build/programa1/main.o
+
+# Define os arquivos src/programa1/main.cpp e os arquivos de cabecalho como dependencias.
+
+$(OBJ_DIR)/questao3/main.o: $(SRC_DIR)/questao3/main.cpp
+
+	$(CC) -c $(CFLAGS) -o $@ $<
+
+
 
 # Alvo (target) para a gera��o automatica de documentacao usando o Doxygen.
 
@@ -199,6 +251,8 @@ doc:
 	$(RM) $(DOC_DIR)/questao1/*
 
 	$(RM) $(DOC_DIR)/questao4/*
+
+	$(RM) $(DOC_DIR)/questao3/*
 
 
 	doxygen
@@ -222,6 +276,10 @@ clean:
 	$(RM) $(BIN_DIR)/questao4/primos
 
 	$(RM) $(OBJ_DIR)/questao4/*
+
+	$(RM) $(BIN_DIR)/questao3/polonesa
+
+	$(RM) $(OBJ_DIR)/questao3/*
 
 
 
